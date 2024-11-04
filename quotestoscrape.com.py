@@ -32,8 +32,10 @@ async def data():
                     "Auhtor": author.text,
                     "Text": text.text
                 }) 
-                
-    print(json.dumps(quote_database, indent=4, ensure_ascii=False))
+                print("Data fetched")
+        with open("quotes_database.json", "w", encoding="utf8") as f:
+            f.write(json.dumps(quote_database, indent=4, ensure_ascii=False))       
+        
 
 asyncio.run(data())
 e = time.time()
